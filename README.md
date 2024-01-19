@@ -64,8 +64,6 @@ Brief about our Approach:
 
 ![image](https://github.com/saurbh264/IISF-Space-Hackathon/assets/126571954/795d14f5-df69-4e4b-9c65-2365b25d8cf6)
 
-## More examples
-
 ## Technology and Tech Stack used:
 
 We have used multiple open-source APIs to achieve our task. The domain-wise APIs and their GitHub links are below.
@@ -80,6 +78,7 @@ We have used multiple open-source APIs to achieve our task. The domain-wise APIs
 8. QA Chain: [Langchain](https://www.langchain.com/)
 9. LLM: [Mixtral - 8x7B](https://www.langchain.com/)
 10. Web Framework: [Django](https://github.com/django/django)
+    
 
 
 If you want to contribute, open an issue or submit a pull request.

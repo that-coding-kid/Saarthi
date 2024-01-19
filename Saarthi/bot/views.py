@@ -19,10 +19,17 @@ from django.views.decorators.http import require_POST
 #import argostranslate.translate
 
 model = whisper.load_model("small")
+
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 from google.colab import drive
-file1 = open("/content/drive/MyDrive/word-replacer.txt", "r+")
+file1 = open("/content/drive/MyDrive/pre-final.txt", "r+")
 new=file1.readlines()
+
+file2 = open("/content/drive/MyDrive/.txt", "r+",encoding="utf-8")
+new2 = file2.readlines()
+
+with open('/content/drive/MyDrive/metas4.pickle','rb') as handle:
+  c= pickle.load(handle)
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter , Document
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
@@ -31,9 +38,14 @@ from langchain.embeddings import HuggingFaceInstructEmbeddings
 instructor_embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl",
                                                       model_kwargs={"device": "cuda"},
                                                      )
+docs2 = []
+for j, i in enumerate(c):
+  doc = Document(page_content = new[j], metadata = i)
+  docs2.append(doc)
+
 
 faiss_index = FAISS.from_documents(docs, instructor_embeddings)
-
+second_index = FAISS.from_documents(docs2, instructor_embeddings)
 from langchain import HuggingFaceHub
 
 llm = HuggingFaceHub(
@@ -85,7 +97,9 @@ def save_audio(request):
           query = f"{query} (based on my previous question: {last_input}, and your previous answer {last_output}"
         else:
           inputs.append(query)
-
+        sim_docs = second_index.similarity_search(query)
+        link = sim_docs[0].metadata['source']
+        print("Reference: "+ link + "\n")
         result = qa_chain({'question': query, 'chat_history': chat_history})
         answer_text=result['answer']
         print('Answer: ' + result['answer'] + '\n')

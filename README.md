@@ -21,7 +21,17 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 - We are fetching the data from websites. Since websites can change, we have created an architecture which allows you to fetch, pre-process and embed data and store it in the FAISS Index Database. Run the following "//Code Here"
 
 ## Flow 
-![WhatsApp Image 2024-01-17 at 21 24 49_082efb10](https://github.com/saurbh264/IISF-Space-Hackathon/assets/126571954/1d10ba60-a7b9-4edd-95be-03fdc03c3988)
+![flowhart](https://github.com/that-coding-kid/Saarthi/assets/120119962/e39cff30-e044-4313-9c64-961f49072c5d)
+Brief about our Approach:
+1.**Web Scrapping and Data Preprocessing**: Leveraging Langchain, we efficiently scraped data from specified URLs. To augment the bot's intent awareness, we manually enriched the dataset with additional descriptors. Further enhancing the conversational depth, we refined the data ensuring a more descriptive and contextually nuanced interaction.
+2.**Creating Embeddings**: Utilizing the Hugging Face platform, specifically the instructor-XL embeddings, we generated embeddings for the dataset. These embeddings form the basis for similarity searches and contribute to the overall functionality of the system.
+3.**Retrieval Augmented Generation using FAISS and Mixtral-8x7B-Instruct-v0.1**: Implemented retrieval augmented generation using FAISS as a knowledge base and semantic index similarity. The system, upon receiving a query, retrieves the context of k-nearest neighbors, enhancing precision in generated responses for a more contextually accurate interaction.
+4.**Voice to Text using Whisper model**: Our system seamlessly integrates the open-source ASR Model- ‘Whisper Voice API’ (Whisper-small model) for live voice-to-text transcription, ensuring accurate and efficient conversion.
+5.**Dynamic and context aware responses using Mixtral-8x7B-Instruct-v0.1** : Subsequently, the query, along with the context retrieved from Faiss, is input into Mixtral-8x7B-Instruct-v0.1, an open-source Large Language Model. Accessing its API from Hugging Face, this model demonstrates superior accuracy compared to Llama 13B and is on par with GPT-3.5 in terms of performance. The response is then generated, leveraging the capabilities of Mixtral-8x7B-Instruct-v0.1, incorporating the contextual information from the query and Faiss-retrieved context.
+6.**Voice based input and output (Bilingual)**: We provide users with the option to choose between Hindi and English for their preferred language. The generated response is presented in a voice-based format, utilizing translators and text-to-voice models to enhance the overall user experience.
+![image](https://github.com/that-coding-kid/Saarthi/assets/120119962/e178b197-6982-4682-b0e5-33033fc856ec)
+
+![image](https://github.com/that-coding-kid/Saarthi/assets/120119962/18142dc9-7688-4726-bfe8-f4824d6749df)
 
 ##Accuracies
 

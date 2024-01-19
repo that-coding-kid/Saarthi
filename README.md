@@ -3,7 +3,7 @@
 This repository contains our works for the Space Hackathon '2023 held at the Indian International Space Festival 2023. This made it to the top 50 finale teams. The problem statement includes building a voice powered chatbot for BHUVAN portal.
 
 ## Overview
-The problem statement expects us to build a chatbot that is capable of understanding and processing multilingual voice‐based search queries. It should accurately interpret the user’s query and deliver context-aware responses. We are expected to enhance the user experience through a well-built voice-enabledinterface.
+The problem statement expects us to build a chatbot that is capable of understanding and processing multilingual voice‐based search queries. It should accurately interpret the user’s query and deliver context-aware responses. We are expected to enhance the user experience through a well-built voice-enabledinterface. SAARTHI is our voice powered chatbot.
 
 ## Prerequisites
 

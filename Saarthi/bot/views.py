@@ -23,13 +23,13 @@ options = whisper.DecodingOptions(language="en")
 
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 from google.colab import drive
-file1 = open("/content/drive/MyDrive/prefinal.txt", "r+")
+file1 = open(f"Saarthi/Databases/prefinal.txt", "r+")
 new=file1.readlines()
 
-file2 = open("/content/drive/MyDrive/second.txt", "r+",encoding="utf-8")
+file2 = open("Saarthi/Databases/second.txt", "r+",encoding="utf-8")
 new2 = file2.readlines()
 
-with open('/content/drive/MyDrive/metas4.pickle','rb') as handle:
+with open('Saarthi/Databases/metas4.pickle','rb') as handle:
   c= pickle.load(handle)
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter , Document

@@ -19,13 +19,14 @@ from django.views.decorators.http import require_POST
 #import argostranslate.translate
 
 model = whisper.load_model("small")
+options = whisper.DecodingOptions(language="en")
 
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 from google.colab import drive
-file1 = open("/content/drive/MyDrive/pre-final.txt", "r+")
+file1 = open("/content/drive/MyDrive/prefinal.txt", "r+")
 new=file1.readlines()
 
-file2 = open("/content/drive/MyDrive/.txt", "r+",encoding="utf-8")
+file2 = open("/content/drive/MyDrive/second.txt", "r+",encoding="utf-8")
 new2 = file2.readlines()
 
 with open('/content/drive/MyDrive/metas4.pickle','rb') as handle:
@@ -40,7 +41,7 @@ instructor_embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instruc
                                                      )
 docs2 = []
 for j, i in enumerate(c):
-  doc = Document(page_content = new[j], metadata = i)
+  doc = Document(page_content = new2[j], metadata = i)
   docs2.append(doc)
 
 
@@ -77,7 +78,7 @@ def save_audio(request):
 
         # Use whisper to transcribe the saved audio file
         audio=whisper.load_audio(audio_path)
-        transcribed_text = whisper.transcribe(audio=audio, model=model)
+        transcribed_text = model.transcribe(audio=audio, fp16=False,language = "en", verbose=True)
         to_code="en"
         #installed_languages = argostranslate.translate.get_installed_languages()
         #from_lang = list(filter(lambda x: x.code == from_code,installed_languages))[0]
@@ -104,7 +105,7 @@ def save_audio(request):
         answer_text=result['answer']
         print('Answer: ' + result['answer'] + '\n')
         chat_history.append((query, result['answer']))
-
+        transcribed_text["text"] = "Reference: "+link + "\n\n" +transcribed_text["text"]
         return JsonResponse({'status': 'success','transcribed_text': transcribed_text, "answer_text":answer_text})
     else:
         return JsonResponse({'status': 'error'})

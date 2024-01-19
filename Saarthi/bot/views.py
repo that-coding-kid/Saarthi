@@ -102,10 +102,9 @@ def save_audio(request):
         link = sim_docs[0].metadata['source']
         print("Reference: "+ link + "\n")
         result = qa_chain({'question': query, 'chat_history': chat_history})
-        answer_text=result['answer']
+        answer_text=  "Reference: "+link + "\n\n"  + result['answer']   
         print('Answer: ' + result['answer'] + '\n')
         chat_history.append((query, result['answer']))
-        transcribed_text["text"] = "Reference: "+link + "\n\n" +transcribed_text["text"]
         return JsonResponse({'status': 'success','transcribed_text': transcribed_text, "answer_text":answer_text})
     else:
         return JsonResponse({'status': 'error'})

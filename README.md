@@ -1,6 +1,6 @@
 # SIF Space Hackathon'2023 Repository
 
-This repository contains our works for the Space Hackathon '2023 held at the Indian International Space Festival 2023.
+This repository contains our works for the Space Hackathon '2023 held at the Indian International Space Festival 2023. This made it to the top 50 finale teams.
 
 ## Overview
 

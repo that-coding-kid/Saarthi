@@ -18,7 +18,7 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 
 ## Flow 
 ![flowhart](https://github.com/that-coding-kid/Saarthi/assets/120119962/e39cff30-e044-4313-9c64-961f49072c5d)
-Brief about our Approach:
+**Brief about our Approach:**
 
 1.**Web Scrapping and Data Preprocessing**: Leveraging Langchain, we efficiently scraped data from specified URLs. To augment the bot's intent awareness, we manually enriched the dataset with additional descriptors. Further enhancing the conversational depth, we refined the data ensuring a more descriptive and contextually nuanced interaction.
 

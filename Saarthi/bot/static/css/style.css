@@ -1,0 +1,300 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --color1: #3498db;
+  --color2: #fff;
+  --background-color: #e3f2fd;
+}
+
+body {
+  background: var(--background-color);
+}
+
+.chatbot-toggler {
+  position: fixed;
+  bottom: 3vh;
+  right: 3vw;
+  outline: none;
+  border: none;
+  height: 8vh;
+  width: 8vh;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color1);
+  transition: all 0.2s ease;
+}
+
+body.show-chatbot .chatbot-toggler {
+  transform: rotate(90deg);
+}
+
+.chatbot-toggler span {
+  color: var(--color2);
+  position: absolute;
+}
+
+body.show-chatbot .chatbot-toggler span:first-child {
+  opacity: 0;
+}
+
+.chatbot {
+  position: fixed;
+  right: 3vw;
+  bottom: 8vh;
+  width: 30vw;
+  height: 70vh;
+  background: #fff;
+  border-radius: 1em;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+  transform-origin: bottom right;
+  box-shadow: 0 0 8vw 0 rgba(0, 0, 0, 0.1), 0 4vh 8vh -6vh rgba(0, 0, 0, 0.5);
+  transition: all 0.1s ease;
+}
+
+body.show-chatbot .chatbot {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  margin-right: 3vh;
+}
+
+.chatbot header {
+  padding: 1em 0;
+  position: relative;
+  text-align: center;
+  color: var(--color2);
+  background: linear-gradient(to bottom, var(--color1), #2980b9);
+  box-shadow: 0 2px 1em var(--color1);
+}
+
+header h2 {
+  font-size: 1.4em;
+  letter-spacing: 0.2em;
+}
+
+.chatbox {
+  overflow-y: auto;
+  height: 60vh;
+  padding: 2em 1em 8em;
+}
+
+.chat-input {
+  display: flex;
+  gap: 0.5em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  padding: 0.2em 2em;
+  border-top: 0.1em solid #ddd;
+}
+
+.chat-input textarea {
+  height: 5vh;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  max-height: 12em;
+  padding: 1em 1em 1em 0;
+  font-size: 1em;
+}
+
+.microphone-icon {
+  color: var(--color1);
+  font-size: 1.35em;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.microphone-icon:hover {
+  transform: scale(1.2);
+}
+
+.chat-message-container {
+  max-width: 70%;
+  margin: 1em;
+  padding: 1.2em;
+  border-radius: 1em;
+  word-wrap: break-word;
+}
+.text-message{
+  background-color: var(--color1);
+  color: var(--color2);
+  align-self: flex-start;
+  font-size: 1em;
+}
+.transcribed-message {
+  background-color: var(--color1);
+  color: var(--color2);
+  align-self: right;
+  font-size: 1em;
+}
+
+.answer-message {
+  background-color: #f2f2f2;
+  color: #000;
+  align-self: flex-end;
+}
+
+.chatbox {
+  overflow-y: auto;
+  height: 50vh;
+  padding: 3vh 2vw 12vh;
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --color1: #3498db;
+  --color2: #fff;
+  --background-color: #e3f2fd;
+}
+
+body {
+  background: var(--background-color);
+}
+
+/* ... (previous styles) ... */
+
+header label {
+  color: var(--color1);
+  font-size: 0.9em;
+  margin-right: 1em;
+}
+
+#language-select {
+  border: 0.2em solid var(--color1);
+  border-radius: 0.3em;
+  padding: 0.5em;
+  font-size: 0.9em;
+  outline: none;
+  background: transparent;
+  color: var(--color1);
+}
+
+/* Styling for Record and Send buttons */
+button#recordButton,
+button#send-btn {
+  background-color: var(--color1);
+  color: var(--color2);
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#recordButton:hover,
+button#send-btn:hover {
+  background-color: #297fb8; /* Darker shade on hover */
+}
+
+/* ... (previous styles) ... */
+
+
+/* ... (previous styles) ... */
+.chat-input textarea {
+  height: 5vh;
+  width: 100%;
+  border: 0.1em solid var(--color1);
+  border-radius: 0.3em;
+  outline: none;
+  resize: none;
+  max-height: 12em;
+  padding: 1em;
+  font-size: 1em;
+  overflow: hidden; /* Hide the scrollbar */
+  transition: border-color 0.3s ease;
+}
+
+.chat-input textarea:valid {
+  border-color: var(--color1);
+  line-height: 5vh;
+}
+
+/* ... (previous styles) ... */
+
+.chat-input {
+  display: flex;
+  gap: 0.5em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  padding: 0.5em 2em; /* Adjusted padding for better alignment */
+  border-top: 0.1em solid #ddd;
+  align-items: center; /* Align items in the center */
+}
+
+#language-select {
+  border: 0.1em solid var(--color1);
+  border-radius: 0.3em;
+  padding: 0.5em;
+  font-size: 0.9em;
+  outline: none;
+  background: var(--background-color); /* Use background color for better visibility */
+  color: var(--color1);
+  flex: 1; /* Take up remaining space */
+}
+
+button#recordButton,
+button#send-btn {
+  background-color: var(--color1);
+  color: var(--color2);
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#recordButton:hover,
+button#send-btn:hover {
+  background-color: #297fb8; /* Darker shade on hover */
+}
+
+.chat-input textarea {
+  height: 5vh;
+  width: 100%;
+  border: 0.1em solid var(--color1);
+  border-radius: 0.3em;
+  outline: none;
+  resize: none;
+  max-height: 12em;
+  padding: 1em;
+  font-size: 1em;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.chat-input textarea:valid {
+  border-color: var(--color1);
+}
+
+/* ... (previous styles) ... */
+
+
+

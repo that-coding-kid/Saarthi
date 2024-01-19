@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chatbot</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <link rel="shortcut icon" href="#">
+  </head>
+  <body>
+    <header>
+    <button class="chatbot-toggler">
+      <span class="material-symbols-rounded">mode_comment</span>
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="chatbot">
+      <header>
+        <h2>Saarthi</h2>
+        <div>
+            <label for="language-select">Select Language:</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <!-- Add more language options as needed -->
+            </select>
+        </div>
+      </header>
+      <div class="chatbox">
+      </div>
+      <div class="chat-input">
+        <button id="recordButton">Record</button>
+        <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+        <button id="send-btn" class="material-symbols-rounded">send</button>
+        <div id="loadingIndicator">
+        <span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span>
+        </div>
+        </div>
+    </div>
+  </body>
+</html>

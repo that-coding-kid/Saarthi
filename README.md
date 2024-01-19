@@ -16,10 +16,6 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 1. Navigate to Google Colab: [colab.research.google.com](https://colab.research.google.com/)
 2. Go to File -> Open Notebook -> from GitHub -> Paste this URL: `https://github.com/saurbh264/IISF-Space-Hackathon.git`
 
-## Updating the database
-
-- We are fetching the data from websites. Since websites can change, we have created an architecture which allows you to fetch, pre-process and embed data and store it in the FAISS Index Database. Run the following "//Code Here"
-
 ## Flow 
 ![flowhart](https://github.com/that-coding-kid/Saarthi/assets/120119962/e39cff30-e044-4313-9c64-961f49072c5d)
 Brief about our Approach:

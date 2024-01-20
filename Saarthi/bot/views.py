@@ -14,9 +14,7 @@ import faiss
 from langchain.vectorstores import FAISS
 from langchain import PromptTemplate, HuggingFaceHub, LLMChain
 from django.views.decorators.http import require_POST
-
-#import argostranslate.package
-#import argostranslate.translate
+from googletrans import Translator
 
 model = whisper.load_model("small")
 options = whisper.DecodingOptions(language="en")
@@ -68,8 +66,6 @@ def index(request):
 def save_audio(request):
     if request.method == 'POST' and 'audio' in request.FILES:
         audio_file = request.FILES['audio']
-        language=request.POST.get('language')
-        from_code = request.POST.get('language')
         # Save the audio file in the media directory
         audio_path = os.path.join('media', audio_file.name)
         with open(audio_path, 'wb') as destination:
@@ -78,16 +74,13 @@ def save_audio(request):
 
         # Use whisper to transcribe the saved audio file
         audio=whisper.load_audio(audio_path)
-        transcribed_text = model.transcribe(audio=audio, fp16=False,language = "en", verbose=True)
-        to_code="en"
-        #installed_languages = argostranslate.translate.get_installed_languages()
-        #from_lang = list(filter(lambda x: x.code == from_code,installed_languages))[0]
-        #to_lang = list(filter(lambda x: x.code == to_code,installed_languages))[0]
-        #translation = from_lang.get_translation(to_lang)
+        transcribed_text = model.transcribe(audio=audio, fp16=False, verbose=True)
+        translator=Translator()
+        translatedText=translator.translate(transcribed_text["text"], dest="en")
         chat_history = []
         inputs, outputs =[],[]
 
-        query = transcribed_text["text"]
+        query = translatedText.text
         if query.lower() in ["exit", "quit", "q"]:
             print('Exiting')
             sys.exit()

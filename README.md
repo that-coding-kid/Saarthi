@@ -7,13 +7,12 @@ The problem statement expects us to build a chatbot that is capable of understan
 
 ## Prerequisites
 
-Our chatbot can be run remotely on Google Colab without installing anything on your system. 
-- [Python](https://www.python.org/) (version X.X.X)
+Our chatbot can be run remotely on Google Colab without installing anything on your system.
 
 ## Getting Started
 
 1. Navigate to Google Colab: [colab.research.google.com](https://colab.research.google.com/)
-2. Go to File -> Open Notebook -> from GitHub -> Paste this URL: `https://github.com/saurbh264/IISF-Space-Hackathon.git`
+2. Go to File -> Open Notebook -> from GitHub -> Paste this URL: `https://github.com/that-coding-kid/Saarthi.git`
 3. The dataset consists of a set of URLs scrapped, preprocessed and saved as a text file.
 
 ## Flow 

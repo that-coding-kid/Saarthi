@@ -32,9 +32,9 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 6.**Voice based input and output (Bilingual)**: We provide users with the option to choose between Hindi and English for their preferred language. The generated response is presented in a voice-based format, utilizing translators and text-to-voice models to enhance the overall user experience.
 
 
-##Accuracies
+## Accuracies
 
-##Whisper
+## Whisper
 |            	| large 	| medium 	| small 	| base 	| tiny 	| WERR: S → M 	|
 |:----------:	|:-----:	|:------:	|:-----:	|:----:	|:----:	|:-----------:	|
 | English    	| 0.15  	| 0.17   	| 0.17  	| 0.2  	| 0.2  	| 0           	|
@@ -76,4 +76,4 @@ We have used multiple open-source APIs to achieve our task. The domain-wise APIs
     
 
 
-If you want to contribute, open an issue or submit a pull request.
+# If you want to contribute, open an issue or submit a pull request.

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const statusIndicator = document.getElementById('statusIndicator');
     const loadingIndicator = document.getElementById('loadingIndicator');
     const statusElement = document.getElementById('status');
-    
+    var selectedLanguage = 'en';
 
     let mediaRecorder;
     let chunks = [];
@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function showLoadingIndicator() {
                 loadingIndicator.style.display = 'block';
             }
-
+    window.updateLanguage =function() {
+        selectedLanguage = document.getElementById('languageDropdown').value;
+    }
     function hideLoadingIndicator() {
                 loadingIndicator.style.display = 'none';
             }
@@ -91,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         const formData = new FormData();
                         formData.append('audio', audioBlob, 'recording.wav');
+                        formData.append('language', selectedLanguage);
                         const csrfToken = getCSRFToken();
                         if (csrfToken) {
                             fetch('/save_audio/', {
@@ -165,8 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.toggle("show-chatbot");
     });
     sendChatBtn.addEventListener('click', send_text_query);
-    const selectedLanguage = document.getElementById('language-select').value;
-    formData.append('language', selectedLanguage);
 
 });
 

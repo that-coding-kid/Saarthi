@@ -66,6 +66,7 @@ def index(request):
 def save_audio(request):
     if request.method == 'POST' and 'audio' in request.FILES:
         audio_file = request.FILES['audio']
+        language_trans = request.POST.get('language', 'en')
         # Save the audio file in the media directory
         audio_path = os.path.join('media', audio_file.name)
         with open(audio_path, 'wb') as destination:
@@ -74,13 +75,13 @@ def save_audio(request):
 
         # Use whisper to transcribe the saved audio file
         audio=whisper.load_audio(audio_path)
-        transcribed_text = model.transcribe(audio=audio, fp16=False, verbose=True)
+        transcribed_text = model.transcribe(audio=audio, language='en', fp16=False, verbose=True)
         translator=Translator()
-        translatedText=translator.translate(transcribed_text["text"], dest="en")
+        translatedText_1=translator.translate(transcribed_text["text"], dest=language_trans)
         chat_history = []
         inputs, outputs =[],[]
 
-        query = translatedText.text
+        query = transcribed_text["text"]
         if query.lower() in ["exit", "quit", "q"]:
             print('Exiting')
             sys.exit()
@@ -95,10 +96,11 @@ def save_audio(request):
         link = sim_docs[0].metadata['source']
         print("Reference: "+ link + "\n")
         result = qa_chain({'question': query, 'chat_history': chat_history})
-        answer_text=  "Reference: "+link + "\n\n"  + result['answer']   
+        translatedText_2=translator.translate(result['answer'], dest=language_trans) 
+        answer_text=  "Reference: "+link + "\n\n"  + translatedText_2.text
         print('Answer: ' + result['answer'] + '\n')
         chat_history.append((query, result['answer']))
-        return JsonResponse({'status': 'success','transcribed_text': transcribed_text, "answer_text":answer_text})
+        return JsonResponse({'status': 'success','transcribed_text': translatedText_1.text, "answer_text":answer_text})
     else:
         return JsonResponse({'status': 'error'})
 

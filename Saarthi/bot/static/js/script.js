@@ -24,9 +24,32 @@ document.addEventListener("DOMContentLoaded", () => {
     window.updateLanguage =function() {
         selectedLanguage = document.getElementById('languageDropdown').value;
     }
+
     function hideLoadingIndicator() {
                 loadingIndicator.style.display = 'none';
             }
+    
+    function speakText(text, language) {
+        const gtts = new gTTS(text, language);
+        gtts.save("audio.mp3", function (error, result) {
+            if (!error) {
+                const audio = new Audio(result);
+                audio.play();
+            } else {
+                console.error("Error generating audio:", error);
+            }
+        });
+    }
+
+    function createVoiceButton(text, language) {
+        const voiceButton = document.createElement("button");
+        voiceButton.textContent = "Listen";
+        voiceButton.addEventListener("click", function () {
+            speakText(text, language);
+        });
+        return voiceButton;
+    }
+
     function send_text_query(){
       const textQuery = chatInput.value.trim();
       if (textQuery !== ""){
@@ -56,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             ? data.answer_text.text
                             : data.answer_text;
                         answerContainer.textContent=answer_text;
+
                         chatBox.appendChild(answerContainer);
                         chatBox.scrollTop = chatBox.scrollHeight;
                          }else {
@@ -131,6 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                                     transcribedContainer.textContent = transcribedText;
                                     answerContainer.textContent = answerText;
+                                    const voiceButton = createVoiceButton(answerText, selectedLanguage);
+                                    answerContainer.appendChild(voiceButton);
                                     chatBox.appendChild(transcribedContainer);
                                     chatBox.appendChild(answerContainer);
                                     chatBox.scrollTop = chatBox.scrollHeight;

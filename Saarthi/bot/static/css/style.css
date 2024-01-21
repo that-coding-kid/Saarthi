@@ -183,7 +183,7 @@ header label {
   margin-right: 1em;
 }
 
-#language-select {
+#languageDropdown {
   border: 0.2em solid var(--color1);
   border-radius: 0.3em;
   padding: 0.5em;

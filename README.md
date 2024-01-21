@@ -16,7 +16,10 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 3. Run all cells, startup time is approximately 10 minutes.
 4. You can now interact with the web interface at your convenience.
 5. The dataset consists of a set of URLs scrapped, preprocessed and saved as a text file.
-Conclusion: Open the "saarthi_backend.ipynb in colab, run all the cells, then once the server is live, click on the link generated after `from google.colab.output import eval_js
+
+   
+Conclusion: Open the "saarthi_backend.ipynb in colab, run all the cells, then once the server is live, click on the link generated after:
+`from google.colab.output import eval_js
 print(eval_js("google.colab.kernel.proxyPort(8000)"))`
 
 ## Flow 

@@ -1,9 +1,9 @@
 # SIF Space Hackathon'2023 Repository
 
-This repository contains our works for the Space Hackathon '2023 held at the Indian International Space Festival 2023. This made it to the top 50 finale teams. The problem statement includes building a voice powered chatbot for BHUVAN portal.
+This repository contains our works for the Space Hackathon '2023 held at the Indian International Space Festival 2023. This made it to the top 50 final teams. The problem statement includes building a voice-powered chatbot for the BHUVAN portal.
 
 ## Overview
-The problem statement expects us to build a chatbot that is capable of understanding and processing multilingual voice‐based search queries. It should accurately interpret the user’s query and deliver context-aware responses. We are expected to enhance the user experience through a well-built voice-enabledinterface. SAARTHI is our voice powered chatbot.
+The problem statement expects us to build a chatbot capable of understanding and processing multilingual voice‐based search queries. It should accurately interpret the user’s query and deliver context-aware responses. We are expected to enhance the user experience through a well-built voice-enabled interface. SAARTHI is our voice-powered chatbot.
 
 ## Prerequisites
 
@@ -13,23 +13,25 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 
 1. Navigate to Google Colab: [colab.research.google.com](https://colab.research.google.com/)
 2. Go to File -> Open Notebook -> from GitHub -> Paste this URL: `https://github.com/that-coding-kid/Saarthi.git`
-3. The dataset consists of a set of URLs scrapped, preprocessed and saved as a text file.
+3. Run all cells, startup time is approximately 10 minutes.
+4. You can now interact with the web interface at your convenience.
+5. The dataset consists of a set of URLs scrapped, preprocessed and saved as a text file.
 
 ## Flow 
 ![flowhart](https://github.com/that-coding-kid/Saarthi/assets/120119962/e39cff30-e044-4313-9c64-961f49072c5d)
 **Brief about our Approach:**
 
-1.**Web Scrapping and Data Preprocessing**: Leveraging Langchain, we efficiently scraped data from specified URLs. To augment the bot's intent awareness, we manually enriched the dataset with additional descriptors. Further enhancing the conversational depth, we refined the data ensuring a more descriptive and contextually nuanced interaction.
+1.**Web Scrapping and Data Preprocessing**: Leveraging Langchain, we efficiently scraped data from specified URLs. We manually enriched the dataset with additional descriptors to augment the bot's intent awareness. Further enhancing the conversational depth, we refined the data ensuring a more descriptive and contextually nuanced interaction.
 
-2.**Creating Embeddings**: Utilizing the Hugging Face platform, specifically the 'instructor-XL' embeddings, we generated embeddings for the dataset. These embeddings form the basis for similarity searches and contribute to the overall functionality of the system.
+2.**Creating Embeddings**: We generated embeddings for the dataset by utilizing the Hugging Face platform, specifically the 'instructor-XL' embeddings. These embeddings form the basis for similarity searches and contribute to the overall functionality of the system.
 
-3.**Retrieval Augmented Generation using FAISS and Mixtral-8x7B-Instruct-v0.1**: Implemented retrieval augmented generation using FAISS as a knowledge base and semantic index similarity. The system, upon receiving a query, retrieves the context of k-nearest neighbors, enhancing precision in generated responses for a more contextually accurate interaction.
+3.**Retrieval Augmented Generation using FAISS and Mixtral-8x7B-Instruct-v0.1**: Implemented retrieval augmented generation using FAISS as a knowledge base and semantic index similarity. The system, upon receiving a query, retrieves the context of k-nearest neighbours, enhancing precision in generated responses for a more contextually accurate interaction.
 
 4.**Voice to Text using Whisper small model**: Our system seamlessly integrates the open-source ASR Model- ‘Whisper Voice API’ (Whisper-small model) for live voice-to-text transcription, ensuring accurate and efficient conversion.
 
-5.**Dynamic and context aware responses using Mixtral-8x7B-Instruct-v0.1** : Subsequently, the query, along with the context retrieved from Faiss, is input into 'Mixtral-8x7B-Instruct-v0.1', an open-source Large Language Model. Accessing its API from Hugging Face, this model demonstrates superior accuracy compared to Llama 13B and is on par with GPT-3.5 in terms of performance. The response is then generated, leveraging the capabilities of Mixtral-8x7B-Instruct-v0.1, incorporating the contextual information from the query and Faiss-retrieved context.
+5.**Dynamic and context-aware responses using Mixtral-8x7B-Instruct-v0.1**: Subsequently, the query, along with the context retrieved from Faiss, is input into 'Mixtral-8x7B-Instruct-v0.1', an open-source Large Language Model. Accessing its API from Hugging Face, this model demonstrates superior accuracy compared to Llama 13B and is on par with GPT-3.5 in terms of performance. The response is then generated, leveraging the capabilities of Mixtral-8x7B-Instruct-v0.1, incorporating the contextual information from the query and Faiss-retrieved context.
 
-6.**Voice based input and output (Bilingual)**: We provide users with the option to choose between Hindi and English for their preferred language. The generated response is presented in a voice-based format, utilizing translators and text-to-voice models to enhance the overall user experience.
+6.**Voice-based input and output (Bilingual)**: We provide users with the option to choose between Hindi and English as their preferred language. The generated response is presented in a voice-based format, utilizing translators and text-to-voice models to enhance the overall user experience.
 
 
 ## Accuracies
@@ -73,7 +75,7 @@ We have used multiple open-source APIs to achieve our task. The domain-wise APIs
 8. QA Chain: [Langchain](https://www.langchain.com/)
 9. LLM: [Mixtral - 8x7B](https://www.langchain.com/)
 10. Web Framework: [Django](https://github.com/django/django)
-    
+
 
 
 # If you want to contribute, open an issue or submit a pull request.

@@ -183,16 +183,6 @@ header label {
   margin-right: 1em;
 }
 
-#languageDropdown {
-  border: 0.2em solid var(--color1);
-  border-radius: 0.3em;
-  padding: 0.5em;
-  font-size: 0.9em;
-  outline: none;
-  background: transparent;
-  color: var(--color1);
-}
-
 /* Styling for Record and Send buttons */
 button#recordButton,
 button#send-btn {
@@ -248,16 +238,6 @@ button#send-btn:hover {
   align-items: center; /* Align items in the center */
 }
 
-#language-select {
-  border: 0.1em solid var(--color1);
-  border-radius: 0.3em;
-  padding: 0.5em;
-  font-size: 0.9em;
-  outline: none;
-  background: var(--background-color); /* Use background color for better visibility */
-  color: var(--color1);
-  flex: 1; /* Take up remaining space */
-}
 
 button#recordButton,
 button#send-btn {
@@ -397,5 +377,32 @@ button#send-btn:hover {
 }
 /* ... (previous styles) ... */
 
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 8px;
+    border: 1px solid #3498db; /* Blue accent color */
+    background-color: #3498db;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 4px; /* Rounded borders */
+}
+select::after {
+    content: '2B9F'; /* Unicode character for a down arrow */
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #333; /* Set the color of the arrow */
+}
 
+/* Style the dropdown options */
+select option {
+    background-color: #fff;
+    color: #333;
+}
 

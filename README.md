@@ -7,13 +7,12 @@ The problem statement expects us to build a chatbot that is capable of understan
 
 ## Prerequisites
 
-Our chatbot can be run remotely on Google Colab without installing anything on your system. 
-- [Python](https://www.python.org/) (version X.X.X)
+Our chatbot can be run remotely on Google Colab without installing anything on your system.
 
 ## Getting Started
 
 1. Navigate to Google Colab: [colab.research.google.com](https://colab.research.google.com/)
-2. Go to File -> Open Notebook -> from GitHub -> Paste this URL: `https://github.com/saurbh264/IISF-Space-Hackathon.git`
+2. Go to File -> Open Notebook -> from GitHub -> Paste this URL: `https://github.com/that-coding-kid/Saarthi.git`
 3. The dataset consists of a set of URLs scrapped, preprocessed and saved as a text file.
 
 ## Flow 
@@ -33,9 +32,9 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 6.**Voice based input and output (Bilingual)**: We provide users with the option to choose between Hindi and English for their preferred language. The generated response is presented in a voice-based format, utilizing translators and text-to-voice models to enhance the overall user experience.
 
 
-##Accuracies
+## Accuracies
 
-##Whisper
+## Whisper
 |            	| large 	| medium 	| small 	| base 	| tiny 	| WERR: S → M 	|
 |:----------:	|:-----:	|:------:	|:-----:	|:----:	|:----:	|:-----------:	|
 | English    	| 0.15  	| 0.17   	| 0.17  	| 0.2  	| 0.2  	| 0           	|
@@ -65,7 +64,7 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 We have used multiple open-source APIs to achieve our task. The domain-wise APIs and their GitHub links are below.
 
 1. Audio Transcription: [OpenAI-Whisper](https://openai.com/research/whisper)
-2. Text Translation: [Argotranslate](https://github.com/argosopentech/argos-translate)
+2. Text Translation: [Googletrans](https://github.com/ssut/py-googletrans)
 3. Voice-Recoding: JavaScript API
 4. Embeddings Creation: [hkunlp/instructor-xl](https://huggingface.co/hkunlp/instructor-xl)
 5. Database Used: [FAISS-Index](https://github.com/facebookresearch/faiss)
@@ -77,4 +76,4 @@ We have used multiple open-source APIs to achieve our task. The domain-wise APIs
     
 
 
-If you want to contribute, open an issue or submit a pull request.
+# If you want to contribute, open an issue or submit a pull request.

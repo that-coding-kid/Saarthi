@@ -64,7 +64,7 @@ Our chatbot can be run remotely on Google Colab without installing anything on y
 We have used multiple open-source APIs to achieve our task. The domain-wise APIs and their GitHub links are below.
 
 1. Audio Transcription: [OpenAI-Whisper](https://openai.com/research/whisper)
-2. Text Translation: [Argotranslate](https://github.com/argosopentech/argos-translate)
+2. Text Translation: [Googletrans](https://github.com/ssut/py-googletrans)
 3. Voice-Recoding: JavaScript API
 4. Embeddings Creation: [hkunlp/instructor-xl](https://huggingface.co/hkunlp/instructor-xl)
 5. Database Used: [FAISS-Index](https://github.com/facebookresearch/faiss)

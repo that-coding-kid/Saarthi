@@ -26,7 +26,7 @@ Conclusion: Open the "saarthi_backend.ipynb" in colab, run all the cells, then o
 ![flowhart](https://github.com/that-coding-kid/Saarthi/assets/120119962/e39cff30-e044-4313-9c64-961f49072c5d)
 **Brief about our Approach:**
 
-1.**Web Scrapping and Data Preprocessing**: Leveraging Langchain, we efficiently scraped data from specified URLs. We manually enriched the dataset with additional descriptors to augment the bot's intent awareness. Further enhancing the conversational depth, we refined the data ensuring a more descriptive and contextually nuanced interaction.
+1.**Web Scrapping and Data Preprocessing**: Leveraging Langchain, we efficiently scraped data from the portal's URLs. We manually enriched the dataset with additional descriptors to augment the bot's intent awareness. Further enhancing the conversational depth, we refined the data ensuring a more descriptive and contextually nuanced interaction.
 
 2.**Creating Embeddings**: We generated embeddings for the dataset by utilizing the Hugging Face platform, specifically the 'instructor-XL' embeddings. These embeddings form the basis for similarity searches and contribute to the overall functionality of the system.
 

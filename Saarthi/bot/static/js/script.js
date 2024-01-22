@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const chatbotToggler = document.querySelector(".chatbot-toggler");
     const closeBtn = document.querySelector(".close-btn");
@@ -29,17 +31,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 loadingIndicator.style.display = 'none';
             }
     
-    function speakText(text, language) {
-        const gtts = new gTTS(text, language);
-        gtts.save("audio.mp3", function (error, result) {
-            if (!error) {
-                const audio = new Audio(result);
-                audio.play();
-            } else {
-                console.error("Error generating audio:", error);
-            }
-        });
-    }
+async function speakText(text, language) {
+  try {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = language;
+    
+    // Wrap the speak function in a promise to catch errors
+    await new Promise((resolve, reject) => {
+      utterance.onend = resolve;
+      utterance.onerror = reject;
+      speechSynthesis.speak(utterance);
+    });
+  } catch (error) {
+    console.error("Error speaking text:", error);
+  }
+}
 
     function createVoiceButton(text, language) {
         const voiceButton = document.createElement("button");

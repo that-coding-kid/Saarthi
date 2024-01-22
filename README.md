@@ -82,6 +82,7 @@ We have used multiple open-source APIs to achieve our task. The domain-wise APIs
 8. QA Chain: [Langchain](https://www.langchain.com/)
 9. LLM: [Mixtral - 8x7B](https://www.langchain.com/)
 10. Web Framework: [Django](https://github.com/django/django)
+11. Text-To-Speech: [SpeechSynthesisUtterance](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance)
 
 
 

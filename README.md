@@ -36,7 +36,7 @@ Conclusion: Open the "saarthi_backend.ipynb" in colab, run all the cells, then o
 
 5.**Dynamic and context-aware responses using Mixtral-8x7B-Instruct-v0.1**: Subsequently, the query, along with the context retrieved from Faiss, is input into 'Mixtral-8x7B-Instruct-v0.1', an open-source Large Language Model. Accessing its API from Hugging Face, this model demonstrates superior accuracy compared to Llama 13B and is on par with GPT-3.5 in terms of performance. The response is then generated, leveraging the capabilities of Mixtral-8x7B-Instruct-v0.1, incorporating the contextual information from the query and Faiss-retrieved context.
 
-6.**Voice-based input and output (Bilingual)**: We provide users with the option to choose between Hindi and English as their preferred language. The generated response is presented in a voice-based format, utilizing translators and text-to-voice models to enhance the overall user experience.
+6.**Voice-based input and output (Multilingual)**: We provide users with the option to choose between various languages such as Hindi,English etc. as their preferred language. The bot is also capable of translating inputs given in a different language than the selected input, for eg- Say the the language field is set as English and we decide to give a Hindi input, then the response generated would be in English along with the transcription of the said query. This can help in cases where information needs to be conveyed to different persons without having the user to know a different language. The generated response is presented in a voice-based format, utilizing translators and text-to-voice models to enhance the overall user experience.
 
 
 ## Accuracies

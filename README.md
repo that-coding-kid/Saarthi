@@ -1,9 +1,7 @@
-# SIF Space Hackathon'2023 Repository
+The problem statement includes building a voice-powered chatbot for the BHUVAN portal.
 
-This repository contains our works for the Space Hackathon '2023 held at the Indian International Space Festival 2023. This made it to the top 50 final teams. The problem statement includes building a voice-powered chatbot for the BHUVAN portal.
-
-## Overview
-The problem statement expects us to build a chatbot capable of understanding and processing multilingual voice‐based search queries. It should accurately interpret the user’s query and deliver context-aware responses. We are expected to enhance the user experience through a well-built voice-enabled interface. SAARTHI is our voice-powered chatbot.
+## 
+In this project,  we plan to build a chatbot capable of understanding and processing multilingual voice‐based search queries. It should accurately interpret the user’s query and deliver context-aware responses. We are expected to enhance the user experience through a well-built voice-enabled interface. SAARTHI is our voice-powered chatbot.
 
 ## Prerequisites
 
@@ -28,7 +26,7 @@ Conclusion: Open the "saarthi_backend.ipynb" in colab, run all the cells, then o
 ![flowhart](https://github.com/that-coding-kid/Saarthi/assets/120119962/e39cff30-e044-4313-9c64-961f49072c5d)
 **Brief about our Approach:**
 
-1.**Web Scrapping and Data Preprocessing**: Leveraging Langchain, we efficiently scraped data from specified URLs. We manually enriched the dataset with additional descriptors to augment the bot's intent awareness. Further enhancing the conversational depth, we refined the data ensuring a more descriptive and contextually nuanced interaction.
+1.**Web Scrapping and Data Preprocessing**: Leveraging Langchain, we efficiently scraped data from the portal's URLs. We manually enriched the dataset with additional descriptors to augment the bot's intent awareness. Further enhancing the conversational depth, we refined the data ensuring a more descriptive and contextually nuanced interaction.
 
 2.**Creating Embeddings**: We generated embeddings for the dataset by utilizing the Hugging Face platform, specifically the 'instructor-XL' embeddings. These embeddings form the basis for similarity searches and contribute to the overall functionality of the system.
 
@@ -38,7 +36,7 @@ Conclusion: Open the "saarthi_backend.ipynb" in colab, run all the cells, then o
 
 5.**Dynamic and context-aware responses using Mixtral-8x7B-Instruct-v0.1**: Subsequently, the query, along with the context retrieved from Faiss, is input into 'Mixtral-8x7B-Instruct-v0.1', an open-source Large Language Model. Accessing its API from Hugging Face, this model demonstrates superior accuracy compared to Llama 13B and is on par with GPT-3.5 in terms of performance. The response is then generated, leveraging the capabilities of Mixtral-8x7B-Instruct-v0.1, incorporating the contextual information from the query and Faiss-retrieved context.
 
-6.**Voice-based input and output (Bilingual)**: We provide users with the option to choose between Hindi and English as their preferred language. The generated response is presented in a voice-based format, utilizing translators and text-to-voice models to enhance the overall user experience.
+6.**Voice-based input and output (Multilingual)**: We provide users with the option to choose between various languages such as Hindi,English etc. as their preferred language. The bot is also capable of translating inputs given in a different language than the selected input, for eg- Say the the language field is set as English and we decide to give a Hindi input, then the response generated would be in English along with the transcription of the said query. This can help in cases where information needs to be conveyed to different persons without having the user to know a different language. The generated response is presented in a voice-based format, utilizing translators and text-to-voice models to enhance the overall user experience.
 
 
 ## Accuracies

@@ -63,6 +63,7 @@ async function speakText(text, language) {
         textContainer.className = 'chat-message-container text-message';
         textContainer.textContent = textQuery;
         chatBox.appendChild(textContainer);
+
         
         chatBox.scrollTop = chatBox.scrollHeight;
         const csrfToken = getCSRFToken();
@@ -73,7 +74,7 @@ async function speakText(text, language) {
                         'Content-Type': 'application/json',
                         'X-CSRFToken': csrfToken,
                     },
-                    body: JSON.stringify({ text_query: textQuery }),
+                    body: JSON.stringify({ text_query: textQuery , language: selectedLanguage }),
         })
         .then(response => response.json())
                 .then(data => {
@@ -84,7 +85,7 @@ async function speakText(text, language) {
                         const answerText = typeof data.answer_text === 'object'
                             ? data.answer_text.text
                             : data.answer_text;
-                        answerContainer.textContent=answer_text;
+                        answerContainer.textContent=answerText;
 
                         chatBox.appendChild(answerContainer);
                         chatBox.scrollTop = chatBox.scrollHeight;
@@ -179,12 +180,10 @@ async function speakText(text, language) {
                         if (mediaRecorder.state === 'inactive') {
                             mediaRecorder.start();
                             recordButton.textContent = 'Stop';
-                            statusElement.textContent = 'currently';
                             statusIndicator.style.display = 'block';
                         } else {
                             mediaRecorder.stop();
                             recordButton.textContent = 'Record';
-                            statusElement.textContent = 'not';
                             statusIndicator.style.display = 'none';
                         }
                     });

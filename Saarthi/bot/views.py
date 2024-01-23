@@ -15,6 +15,7 @@ from langchain.vectorstores import FAISS
 from langchain import PromptTemplate, HuggingFaceHub, LLMChain
 from django.views.decorators.http import require_POST
 from googletrans import Translator
+import json
 
 model = whisper.load_model("small")
 options = whisper.DecodingOptions(language="en")
@@ -108,29 +109,35 @@ def save_audio(request):
 @require_POST 
 @csrf_exempt
 def send_text_query(request):
-    data = request.POST 
+    data = json.loads(request.body.decode('utf-8'))
     text_query = data.get('text_query', '')
-    print(text_query)
+    language_trans = data.get('language', 'en')
+    print("language:", language_trans)
+    translator=Translator()
+    translatedText_1=translator.translate(text_query, dest='en')
     chat_history = []
     inputs, outputs =[],[]
-    query = text_query
+    query = translatedText_1.text
+    print("Question:", query)
 
     if query.lower() in ["exit", "quit", "q"]:
-            print('Exiting')
-            sys.exit()
-        
+        print('Exiting')
+        sys.exit()
+    
     if len(inputs) > 0:
-          inputs.append(query)
-          last_input, last_output = inputs[-1], outputs[-1]
-          query = f"{query} (based on my previous question: {last_input}, and your previous answer {last_output}"
+      inputs.append(query)
+      last_input, last_output = inputs[-1], outputs[-1]
+      query = f"{query} (based on my previous question: {last_input}, and your previous answer {last_output}"
     else:
-          inputs.append(query)
-
+      inputs.append(query)
+    sim_docs = second_index.similarity_search(query)
+    link = sim_docs[0].metadata['source']
+    print("Reference: "+ link + "\n")
     result = qa_chain({'question': query, 'chat_history': chat_history})
-    answer_text=result['answer']
+    translatedText_2=translator.translate(result['answer'], dest=language_trans) 
+    answer_text=  "Reference: "+link + "\n\n"  + translatedText_2.text
     print('Answer: ' + result['answer'] + '\n')
     chat_history.append((query, result['answer']))
-
     return JsonResponse({'status': 'success', "answer_text":answer_text})
 
 
